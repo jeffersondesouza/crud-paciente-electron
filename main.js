@@ -10,6 +10,8 @@ const createWindow = () => {
   });
   mainWindow.loadURL(`file://${__dirname}/app/index.html`);
 }
+/*   width: 1250,
+height: 700, */
 
 
 app.on('ready', createWindow)

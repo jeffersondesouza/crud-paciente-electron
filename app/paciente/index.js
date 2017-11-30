@@ -1,4 +1,6 @@
-exports.module = function () {
-  console.log('paciente')
+const pacienteController = require('./dao/paciente-dao');
 
+module.exports = {
+  nome: 'ola',
+  salvarPaciente: pacienteController.salvarPaciente
 }
