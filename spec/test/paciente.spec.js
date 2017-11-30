@@ -13,6 +13,5 @@ describe('test ciração de paciente', () => {
     paciente.init('joao', '88888888', 'joso@emal', '12/12/2017', 'rua');
     expect(paciente._id).toBe(new Date().toISOString());
   });
-
-  
+ 
 });
