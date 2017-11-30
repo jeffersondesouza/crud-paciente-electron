@@ -3,5 +3,11 @@
 *.ldb
 *.old
 _pouch_pacientes
-pacientes/MANIFEST-*
-pacientes/LOG*
+*/MANIFEST-*
+*/LOG*
+*/CURRENT
+*/LOG
+*/LOG.old
+*/CURRENT
+*/LOG
+*/LOG.old

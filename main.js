@@ -8,7 +8,7 @@ const createWindow = () => {
     height: 600,
     icon: `${__dirname}/assets/img/icon.png`
   });
-  mainWindow.loadURL(`file://${__dirname}/app/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/app/pages/index.html`);
 }
 /*   width: 1250,
 height: 700, */

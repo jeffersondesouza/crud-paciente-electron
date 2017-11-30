@@ -1,4 +1,4 @@
-const pacienteModule = require('./paciente');
+const pacienteModule = require('../paciente');
 const PouchDB = require('pouchdb');
 
 const db = new PouchDB('pessoas')
