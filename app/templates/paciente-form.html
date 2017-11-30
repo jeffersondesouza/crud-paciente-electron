@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Diagnes</title>
+</head>
+
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="header__logo logo--link">Logo</div>
+      <hr>
+    </header>
+    <section>
+      <div class="breadcrumb">
+        <a href="./index.html">Lista de Pacientes</a> >
+        <a href="#">Novo Paciente</a>
+      </div>
+      <form>
+        <div class="form-group">
+          <label for="data">Nome</label>
+          <input type="text" id="nome" class="form-control" required autofocus/>
+        </div>
+
+        <button type="submit">Adicionar Paciente</button>
+        <br>
+        <button type="button">Cancelar</button>
+        
+      </form>
+    </section>
+  </main>
+  <script>
+    const $ = require('jquery');
+    require('./app')
+  </script>
+</body>
+
+</html>
