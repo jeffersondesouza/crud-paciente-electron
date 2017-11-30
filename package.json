@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^1.4.12",
+    "electron": "^1.7.9",
     "jquery": "^3.2.1",
-    "pouchdb": "^6.1.0"
+    "pouchdb": "^6.3.4"
   },
   "devDependencies": {
     "electron-rebuild": "^1.6.0",

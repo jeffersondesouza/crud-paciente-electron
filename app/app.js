@@ -45,7 +45,13 @@ $('#btn-salvar').click((e) => {
   db.put({
     _id: new Date().toISOString(),
     name: 'joao'
+  }, (err, result) => {
+    console.log(result)
   });
 
-  console.log(listaPacientesView)
+
+  db.allDocs({ include_docs: true, descending: true }, (err, doc) => {
+    console.log(doc.rows)
+  });
+
 });
