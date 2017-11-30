@@ -40,18 +40,5 @@ $('#lista-pacientes').append(listaPacientesView);
 
 $('#btn-salvar').click((e) => {
   e.preventDefault();
-  //  pacienteModule.salvarPaciente(pacientes[0])
-
-  db.put({
-    _id: new Date().toISOString(),
-    name: 'joao'
-  }, (err, result) => {
-    console.log(result)
-  });
-
-
-  db.allDocs({ include_docs: true, descending: true }, (err, doc) => {
-    console.log(doc.rows)
-  });
-
+  pacienteModule.salvarPaciente(pacientes[0])
 });
