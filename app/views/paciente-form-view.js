@@ -1,5 +1,5 @@
+const PacienteController = require('../paciente');
 
-const PacienteDAO = require('../paciente/dao/paciente-dao');
 const pacienteForm = $('#paciente-form');
 
 const onAddPaciente = () => {
