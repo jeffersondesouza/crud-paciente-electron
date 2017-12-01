@@ -1,5 +1,5 @@
-const { SerializedInputParser } = require('../../../app/helpers')
-const { PacienteController } = require('../../../app/paciente');
+const { SerializedInputParser } = require('../../../app/server/helpers')
+const { PacienteController } = require('../../../app/server/paciente');
 
 
 const serializedData = [

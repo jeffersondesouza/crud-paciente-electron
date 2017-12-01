@@ -1,5 +1,5 @@
 require('require-rebuild')
-const { PacienteDAO } = require('../../../app/paciente');
+const { PacienteDAO } = require('../../../app/server/paciente');
 
 
 describe('test criação de paciente via DAO', () => {

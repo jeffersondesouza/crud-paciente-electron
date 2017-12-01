@@ -1,5 +1,5 @@
 const assert = require('assert')
-const paciente = require('../../../app/paciente/model/paciente');
+const paciente = require('../../../app/server/paciente/model/paciente');
 
 describe('init tests', () => {
   it('should init tests', () => {
