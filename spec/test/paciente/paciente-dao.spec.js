@@ -1,5 +1,6 @@
 require('require-rebuild')
-const PacienteDAO = require('../../../app/paciente/dao/paciente-dao');
+const { PacienteDAO } = require('../../../app/paciente');
+
 
 describe('test criação de paciente via DAO', () => {
 
@@ -15,7 +16,7 @@ describe('test criação de paciente via DAO', () => {
 
   it('should test a CRUD cicle', (done) => {
     const paciente = { _id: 'paciente', nome: 'joao' };
-    const initialTotal;
+    let initialTotal;
 
     PacienteDAO.salvar(paciente)
       .then(res => {
