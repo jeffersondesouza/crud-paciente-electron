@@ -1,12 +1,22 @@
 const PacienteDB = require('../../infra/PacienteDB');
 
-const salvarPaciente = (paciente) => {
-  return PacienteDB.put(paciente);
+
+const salvar = (paciente) => {
+  return PacienteDB.put({
+    _id: 'mydoc',
+    title: "Let's Dance"
+  });
 }
 
-const removePaciente = (paciente) => {
+const remover = (paciente) => {
   return PacienteDB.remove(paciente);
-
 }
 
-module.exports = { salvarPaciente, removePaciente };
+const listarTodos = () => {
+  return PacienteDB.allDocs({ include_docs: true, descending: true });
+}
+const buscarPorId = (docId) => {
+  return PacienteDB.get(docId);
+}
+
+module.exports = { salvar, remover, listarTodos, buscarPorId };
