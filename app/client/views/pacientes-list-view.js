@@ -1,7 +1,6 @@
 const { ipcRenderer } = require('electron');
-
-const IpcEventsEnum = require('../infra/IpcEventsEnum');
-const { PacienteController } = require('../paciente');
+const IpcEventsEnum = require('../../../app/server/infra/IpcEventsEnum');
+const { PacienteController } = require('../../server/paciente');
 
 
 const listarPacientes = () => {

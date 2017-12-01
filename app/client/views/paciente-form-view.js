@@ -1,7 +1,7 @@
 const { ipcRenderer } = require('electron');
-const IpcEventsEnum = require('../infra/IpcEventsEnum');
+const IpcEventsEnum = require('../../server/infra/IpcEventsEnum');
 
-const { PacienteController } = require('../paciente');
+const { PacienteController } = require('../../server/paciente');
 
 const pacienteForm = $('#paciente-form');
 
