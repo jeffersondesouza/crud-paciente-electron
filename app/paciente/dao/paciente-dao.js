@@ -1,7 +1,12 @@
-const PacienteDB = require('../database/paciente-db');
+const PacienteDB = require('../../infra/PacienteDB');
 
 const salvarPaciente = (paciente) => {
   return PacienteDB.put(paciente);
 }
 
-module.exports = { salvarPaciente };
+const removePaciente = (paciente) => {
+  return PacienteDB.remove(paciente);
+
+}
+
+module.exports = { salvarPaciente, removePaciente };

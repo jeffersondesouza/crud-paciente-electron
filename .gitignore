@@ -3,4 +3,4 @@
 *.ldb
 *.old
 _pouch_pacientes
-/pacientes-db
+/paciente-db

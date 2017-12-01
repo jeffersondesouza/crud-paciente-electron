@@ -1,5 +1,5 @@
 const assert = require('assert')
-const paciente = require('../../app/paciente/model/paciente');
+const paciente = require('../../../app/paciente/model/paciente');
 
 describe('init tests', () => {
   it('should init tests', () => {
@@ -8,9 +8,11 @@ describe('init tests', () => {
 });
 
 
-describe('test ciração de paciente', () => {
+describe('test criação de paciente', () => {
   it('should init tests', () => {
     paciente.init('joao', '88888888', 'joso@emal', '12/12/2017', 'rua');
     expect(paciente._id).toBe(new Date().toISOString());
   });
+
 });
+
