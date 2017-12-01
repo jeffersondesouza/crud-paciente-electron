@@ -26,24 +26,24 @@
   <script>
     const $ = require('jquery');
 
+    $('#lista-pacientes').click();
+
 
     $('body').click((event) => {
       const section = event.target.dataset.section;
       if (section) {
-        console.log(section)
-
-        const linkTemplate = $(`link[rel="import"]#${section}`)[0];
-        const template = linkTemplate.import.querySelector(`template#${section}`);
-
-        console.log(linkTemplate)
-        console.log(template)
-
-
-        const clone = document.importNode(template.content, true);
-        $('#main-content').html(clone);
+        navegateTo(section);
       }
     });
 
+    function navegateTo(linkId) {
+      const linkTemplate = $(`link[rel="import"]#${linkId}`)[0];
+      const template = linkTemplate.import.querySelector(`template#${linkId}`);
+      const clone = document.importNode(template.content, true);
+      $('#main-content').html(clone);
+
+    }
+    navegateTo('lista-pacientes')
 
    // require('./app/client/assets/navegation');
   </script>

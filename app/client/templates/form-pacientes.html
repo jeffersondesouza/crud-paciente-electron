@@ -1,4 +1,27 @@
 <template id="form-pacientes">
-  <h3>FOMR de Pacientes</h3>
-  <input type="text">
+  <form id="paciente-form">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" class="form-control" required autofocus/>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" class="form-control" required/>
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input type="text" id="telefone" name="telefone" class="form-control" required/>
+    </div>
+    <div class="form-group">
+      <label for="dataDeNascimento">Data de Nascimento</label>
+      <input type="date" id="dataDeNascimento" name="dataDeNascimento" class="form-control" required/>
+    </div>
+    <div class="form-group">
+      <label for="endereco">Endereço</label>
+      <input type="text" id="endereco" name="endereco" class="form-control" required/>
+    </div>
+    <button type="submit">Adicionar Paciente</button>
+    <br>
+    <button type="button" onclick="onCancelAddPaciente()">Cancelar</button>
+  </form>
 </template>
