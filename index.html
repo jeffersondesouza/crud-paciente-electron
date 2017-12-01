@@ -24,7 +24,8 @@
   <div id="main-content"></div>
 
   <script>
-    require('./app/client/helpers/router');
+    const { listenRouting } = require('./app/client/helpers/router');
+    listenRouting('lista-pacientes');
   </script>
 </body>
 
