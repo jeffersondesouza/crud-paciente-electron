@@ -2,10 +2,7 @@ const PacienteDB = require('../../infra/PacienteDB');
 
 
 const salvar = (paciente) => {
-  return PacienteDB.put({
-    _id: 'mydoc',
-    title: "Let's Dance"
-  });
+  return PacienteDB.put(paciente);
 }
 
 const remover = (paciente) => {
