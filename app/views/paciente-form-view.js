@@ -1,3 +1,5 @@
+const { ipcRenderer } = require('electron');
+const IpcEventsEnum = require('../infra/IpcEventsEnum');
 
 const { PacienteController } = require('../paciente');
 
@@ -25,3 +27,6 @@ const onCancelAddPaciente = () => {
 
 onAddPaciente();
 
+ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (e, value) => {
+  console.log(e, value)
+})

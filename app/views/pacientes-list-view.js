@@ -1,3 +1,6 @@
+const { ipcRenderer } = require('electron');
+
+const IpcEventsEnum = require('../infra/IpcEventsEnum');
 const { PacienteController } = require('../paciente');
 
 
@@ -19,6 +22,14 @@ const onDelete = () => {
   });
 }
 
+const onEdit = () => {
+  $('#lista-pacientes').on('click', 'button.action-buttons__edit', function (e) {
+    e.preventDefault();
+    console.log(e.target.id);
+    ipcRenderer.send(IpcEventsEnum.PACIENTE_PARA_EDICAO, e.target.id)
+
+  });
+}
 
 const template = (model) => {
   // console.log(model)
@@ -36,8 +47,8 @@ const template = (model) => {
         </div>
         <div class="action-buttons">
           <div class="action-buttons">
-            <button class="action-buttons__edit">Edit</button>
-            <button id="${model.id}"  class="action-buttons__remove">Remove</button>
+            <button id="${model.id}" class="action-buttons__edit">Edit</button>
+            <button id="${model.id}" class="action-buttons__remove">Remove</button>
           </div>
         </div>
       </li>
@@ -45,11 +56,8 @@ const template = (model) => {
     : '<li></li>';
 }
 
-
-
-
 $(document).ready(() => {
   listarPacientes();
   onDelete();
-
+  onEdit();
 });
