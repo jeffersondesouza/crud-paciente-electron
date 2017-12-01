@@ -16,11 +16,16 @@ const getRowArrayData = (list) => {
 
 const salvar = (inputData) => {
   const pacienteToSave = getParsedData(inputData);
-  pacienteToSave._id = new Date().toISOString(),
-
-    console.log(pacienteToSave)
-
+  pacienteToSave._id = new Date().toISOString();
+  console.log(pacienteToSave)
   return PacienteDAO.salvar(pacienteToSave);
+}
+
+const remover = (id) => {
+  return PacienteDAO.buscarPorId(id)
+    .then(res => {
+      return PacienteDAO.remover(res);
+    });
 }
 
 const listarTodos = () => {
@@ -32,4 +37,10 @@ const listarTodos = () => {
     });
 }
 
-module.exports = { salvar, listarTodos }
+const buscarPorId = (docId) => {
+  return PacienteDAO.buscarPorId(docId);
+}
+
+
+
+module.exports = { salvar, listarTodos, remover, buscarPorId }

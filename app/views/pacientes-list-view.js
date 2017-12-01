@@ -1,17 +1,30 @@
 const { PacienteController } = require('../paciente');
-onInit();
 
-function onInit() {
+
+const listarPacientes = () => {
   PacienteController.listarTodos()
     .then(res => {
-      $('#lista-pacientes').append(res.map(template));
-    })
+      $('#lista-pacientes').html(res.map(template));
+    });
 }
 
+const onDelete = () => {
+  $('#lista-pacientes').on('click', 'button.action-buttons__remove', function (e) {
+    e.preventDefault();
+    console.log(e.target.id);
+    PacienteController.remover(e.target.id)
+      .then(res => {
+        listarPacientes();
+      })
+  });
+}
+
+
 const template = (model) => {
-  console.log(model)
-  return model ? `
-      <li class="paciente-item">
+  // console.log(model)
+  return model
+    ? `
+      <li id="list" class="paciente-item">
         <div class="paciente-item__nome">
           ${model.nome}
         </div>
@@ -24,12 +37,19 @@ const template = (model) => {
         <div class="action-buttons">
           <div class="action-buttons">
             <button class="action-buttons__edit">Edit</button>
-            <button class="action-buttons__remove">Remove</button>            
+            <button id="${model.id}"  class="action-buttons__remove">Remove</button>
           </div>
         </div>
       </li>
-  ` : '<li></li>';
+  `
+    : '<li></li>';
 }
 
 
 
+
+$(document).ready(() => {
+  listarPacientes();
+  onDelete();
+
+});

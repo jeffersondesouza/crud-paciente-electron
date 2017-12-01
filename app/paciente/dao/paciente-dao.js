@@ -1,6 +1,5 @@
 const PacienteDB = require('../../infra/PacienteDB');
 
-
 const salvar = (paciente) => {
   return PacienteDB.put(paciente);
 }
