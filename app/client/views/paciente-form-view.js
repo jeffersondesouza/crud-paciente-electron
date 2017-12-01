@@ -5,18 +5,18 @@ const { PacienteController } = require('../../server/paciente');
 
 const pacienteForm = $('#paciente-form');
 
+console.log(pacienteForm)
+
 const onAddPaciente = () => {
   pacienteForm.submit((event) => {
 
     PacienteController.salvar(pacienteForm.serializeArray())
       .then(res => {
-        console.log(res);
         pacienteForm.each(function () {
           this.reset();
         });
       })
       .catch(error => console.log(error));
-
     event.preventDefault();
   });
 }
