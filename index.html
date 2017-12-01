@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+  <link rel="stylesheet" href="app/client/assets/css/native.css">
+  <link rel="stylesheet" href="app/client/assets/css/nav.css">
+
+  <link id="lista-pacientes" rel="import" href="app/client/templates/lista-pacientes.html">
+  <link id="form-pacientes" rel="import" href="app/client/templates/form-pacientes.html">
+
+</head>
+
+<body>
+  <div class="nav-item">
+    <button type="button" data-section="lista-pacientes" class="nav-button">Lista de Pacientes</button>
+    <button type="button" data-section="form-pacientes" class="nav-button"> Add Paciente</button>
+  </div>
+
+  <div id="main-content"></div>
+
+  <script>
+    const $ = require('jquery');
+
+
+    $('body').click((event) => {
+      const section = event.target.dataset.section;
+      if (section) {
+        console.log(section)
+
+        const linkTemplate = $(`link[rel="import"]#${section}`)[0];
+        const template = linkTemplate.import.querySelector(`template#${section}`);
+
+        console.log(linkTemplate)
+        console.log(template)
+
+
+        const clone = document.importNode(template.content, true);
+        $('#main-content').html(clone);
+      }
+    });
+
+
+   // require('./app/client/assets/navegation');
+  </script>
+</body>
+
+</html>

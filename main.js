@@ -3,13 +3,32 @@ const { app, BrowserWindow } = require('electron');
 let mainWindow;
 
 const createWindow = () => {
+
+  var shouldQuit = makeSingleInstance()
+  if (shouldQuit) return app.quit()
+
+
   mainWindow = new BrowserWindow({
-    width: 600,
-    height: 600,
+    width: 1080,
+    minWidth: 680,
+    height: 840,
     icon: `${__dirname}/assets/img/icon.png`
   });
-  mainWindow.loadURL(`file://${__dirname}/app/templates/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/index.html`);
 }
+
+function makeSingleInstance () {
+  if (process.mas) return false
+
+  return app.makeSingleInstance(function () {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+    }
+  })
+}
+
+
 /*   width: 1250,
 height: 700, */
 
