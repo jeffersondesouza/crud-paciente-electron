@@ -15,8 +15,12 @@ const getRowArrayData = (list) => {
 
 
 const salvar = (inputData) => {
-  paciente.init(getParsedData(inputData));
-  return PacienteDAO.salvar(paciente);
+  const pacienteToSave = getParsedData(inputData);
+  pacienteToSave._id = new Date().toISOString(),
+
+    console.log(pacienteToSave)
+
+  return PacienteDAO.salvar(pacienteToSave);
 }
 
 const listarTodos = () => {

@@ -5,7 +5,7 @@ const pacienteForm = $('#paciente-form');
 
 const onAddPaciente = () => {
   pacienteForm.submit((event) => {
-    event.preventDefault();
+
     PacienteController.salvar(pacienteForm.serializeArray())
       .then(res => {
         console.log(res);
@@ -15,6 +15,7 @@ const onAddPaciente = () => {
       })
       .catch(error => console.log(error));
 
+    event.preventDefault();
   });
 }
 

@@ -9,15 +9,16 @@ function onInit() {
 }
 
 const template = (model) => {
+  console.log(model)
   return model ? `
-      <li class="paciente-item>
-        <div class="paciente-item__nome>
+      <li class="paciente-item">
+        <div class="paciente-item__nome">
           ${model.nome}
         </div>
-        <div class="paciente-item__email>
+        <div class="paciente-item__email">
           ${model.email}
         </div>
-        <div class="paciente-item__telefone>
+        <div class="paciente-item__telefone">
           ${model.telefone}
         </div>
         <div class="action-buttons">
