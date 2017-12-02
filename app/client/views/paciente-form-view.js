@@ -3,26 +3,28 @@ const IpcEventsEnum = require('../../server/infra/IpcEventsEnum');
 
 const { PacienteController } = require('../../server/paciente');
 
-const onTemplateChanges = () => {
 
+const resetForm = (pacienteForm) => {
+  pacienteForm.each(function () {
+    this.reset();
+  });
+}
+
+const addPaciente = (pacienteForm) => {
+  PacienteController.salvar(pacienteForm.serializeArray())
+    .then(res => {
+      resetForm(pacienteForm);
+    })
+    .catch(error => console.log(error));
 }
 
 const onAddPaciente = () => {
-  console.log('on add')
+
   let pacienteForm = $('#paciente-form');
+
   pacienteForm.submit((event) => {
     event.preventDefault();
-
-    console.log(pacienteForm);
-    console.log(event);
-
-    PacienteController.salvar(pacienteForm.serializeArray())
-      .then(res => {
-        pacienteForm.each(function () {
-          this.reset();
-        });
-      })
-      .catch(error => console.log(error));
+    addPaciente(pacienteForm);
   });
 }
 
@@ -37,6 +39,12 @@ const onCancelForm = () => {
 }
 
 
+const onTemplateChanges = () => {
+
+  onCancelForm();
+  onAddPaciente();
+}
+
 ipcRenderer.on(IpcEventsEnum.TEMPLATE_LOADED, () => {
   console.log(IpcEventsEnum.TEMPLATE_LOADED)
 })
@@ -50,10 +58,8 @@ $('body').click((event) => {
   const section = event.target.dataset.section;
   if (section) {
 
-    onTemplateChanges($('#paciente-form'));    
-    
-    onCancelForm();
-    onAddPaciente();
+    onTemplateChanges($('#paciente-form'));
+
   }
 });
 
