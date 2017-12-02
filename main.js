@@ -1,4 +1,5 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const IpcEventsEnum = require('./app/server/infra/IpcEventsEnum');
 
 let mainWindow;
 
@@ -47,12 +48,8 @@ app.on('activate', function () {
   }
 });
 
-
-ipcMain.on('load', function () {
-  console.log('load ')
-})
-
-
-document.addEventListener('WebComponentsReady', function(e) {
-  alert('WebComponentsReady!!!');
+ipcMain.on(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, (event, value) => {
+  console.log('main: ', value);
+  mainWindow.webContents.send('main', 5);
+  event.sender.send('main', 2);
 });

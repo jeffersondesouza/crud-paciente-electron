@@ -1,4 +1,4 @@
-const { ipcRenderer } = require('electron');
+const { ipcRenderer, remote } = require('electron');
 const IpcEventsEnum = require('../../server/infra/IpcEventsEnum');
 
 const { PacienteController } = require('../../server/paciente');
@@ -26,7 +26,6 @@ const onAddPaciente = (pacienteForm) => {
 }
 
 const onCancelForm = (pacienteForm) => {
-  console.log('c')
   $('#btn-cancel-form').on('click', () => {
     resetForm(pacienteForm);
   });
@@ -44,22 +43,12 @@ $('body').click((event) => {
   const section = event.target.dataset.section;
   if (section) {
     onTemplateChanges($('#paciente-form'));
-
   }
 });
 
 onAddPaciente($('#paciente-form'));
 onCancelForm($('#paciente-form'))
 
-
-
-
-/* ipcRenderer.on(IpcEventsEnum.TEMPLATE_LOADED, () => {
-  console.log(IpcEventsEnum.TEMPLATE_LOADED)
-})
-
-
-ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (e, value) => {
-  console.log(e, value)
-})
- */
+ipcRenderer.on('main', (event, value) => {
+  console.log('form: ', value)
+});

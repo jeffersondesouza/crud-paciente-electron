@@ -9,6 +9,9 @@ const listarPacientes = () => {
     .then(res => {
       console.log($('#lista-pacientes'))
       $('#lista-pacientes').html(res.map(template));
+
+      onEdit();
+      onDelete();
     });
 }
 
@@ -26,9 +29,7 @@ const onDelete = () => {
 const onEdit = () => {
   $('#lista-pacientes').on('click', 'button.action-buttons__edit', function (e) {
     e.preventDefault();
-    console.log(e.target.id);
-    ipcRenderer.send(IpcEventsEnum.PACIENTE_PARA_EDICAO, e.target.id)
-
+    ipcRenderer.send(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, e.target.id)
   });
 }
 
@@ -59,12 +60,16 @@ const template = (model) => {
 
 
 listarPacientes();
-onDelete();
-onEdit();
 
 $('body').click((event) => {
   const section = event.target.dataset.section;
+  if (section) {
+    console.log('asas')
+    onEdit();
+    onDelete();
+  }
   if (section === 'link-lista-pacientes') {
     listarPacientes();
   }
+
 });
