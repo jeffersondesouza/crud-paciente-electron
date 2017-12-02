@@ -2,18 +2,12 @@ const { ipcRenderer } = require('electron');
 const IpcEventsEnum = require('../../../app/server/infra/IpcEventsEnum');
 const { PacienteController } = require('../../server/paciente');
 
-let listaPacientes;
 
-const buscarPacientes = () => {
-  PacienteController.listarTodos()
-    .then(res => {
-      listaPacientes = res.slice();
-    });
-}
 
 const listarPacientes = () => {
   PacienteController.listarTodos()
     .then(res => {
+      console.log($('#lista-pacientes'))
       $('#lista-pacientes').html(res.map(template));
     });
 }
@@ -63,15 +57,14 @@ const template = (model) => {
     : '<li></li>';
 }
 
-buscarPacientes();
+
 listarPacientes();
 onDelete();
 onEdit();
 
 $('body').click((event) => {
   const section = event.target.dataset.section;
-  if (section) {
-    console.log(section, lista)
+  if (section === 'link-lista-pacientes') {
     listarPacientes();
   }
 });
