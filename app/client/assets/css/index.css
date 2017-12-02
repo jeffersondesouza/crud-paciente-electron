@@ -1,0 +1,28 @@
+.app-page {
+    background-color: #F9F9F9;
+}
+
+.nav-button.active {
+    color: blue;
+}
+
+.breadcrumb__item {
+    background: none;
+    border: none;
+}
+.breadcrumb__item:hover{
+    cursor: pointer;
+}
+
+.header {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1.56rem;
+    margin-bottom: 0.6rem;
+}
+
+.container {
+    width: 70%;
+    margin: auto;
+}

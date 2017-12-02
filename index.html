@@ -8,7 +8,9 @@
 
 
   <link rel="stylesheet" href="app/client/assets/css/reset.css">
-  <link rel="stylesheet" href="app/client/assets/css/nav.css">
+  <link rel="stylesheet" href="app/client/assets/css/global-colors-styles.css">
+  <link rel="stylesheet" href="app/client/assets/css/index.css">
+
 
   <link id="link-lista-pacientes" rel="import" href="app/client/templates/lista-pacientes.html">
   <link id="link-form-pacientes" rel="import" href="app/client/templates/form-pacientes.html">
@@ -16,19 +18,40 @@
 </head>
 
 <body>
-  <div class="nav-item">
-    <button id="link-lista-pacientes" type="button" data-section="link-lista-pacientes" class="nav-button">Lista de Pacientes</button>
-    <button type="button" data-section="link-form-pacientes" class="nav-button"> Add Paciente</button>
+  <div class="app-page">
+    <header class="header default-background">
+      <img src="assets/img/diagnes.png" alt="Logomarca da empresa Diagnes">
+    </header>
+    <main class="container">
+      <nav class="breadcrumb">
+        <a id="link-lista-pacientes" class="breadcrumb__item">Lista de Pacientes</a>
+        <button id="link-lista-pacientes" type="button" data-section="link-lista-pacientes" class="breadcrumb__item">Lista de Pacientes</button>
+        <button type="button" data-section="link-form-pacientes" class="breadcrumb__item"> Add Paciente</button>
+      </nav>
+      <section id="main-content"></section>
+    </main>
+    <footer class="footer default-background center">
+      <div class="footer__empresa white">
+        Avaliação Técnica Diagnes
+      </div>
+      <div class="footer__dev white">
+        Jéfferson de souza
+      </div>
+      <div class="footer__social-medias white">
+        <nav>
+          <a href="">Github</a>
+          <a href="">LinkedIn</a>
+          <a href="">Twiter</a>
+        </nav>
+      </div>
+    </footer>
   </div>
-
-  <div id="main-content"></div>
-
   <script>
     const $ = require('jquery');
     const { listenRouting } = require('./app/client/helpers/router');
     listenRouting('link-lista-pacientes');
 
- 
+
   </script>
 </body>
 

@@ -16,7 +16,8 @@ const createWindow = () => {
     width: 1080,
     minWidth: 680,
     height: 840,
-    icon: `${__dirname}/assets/img/icon.png`
+    title:'Diagnes',
+    icon: `${__dirname}/assets/img/logo-icon.svg`
   });
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 }
