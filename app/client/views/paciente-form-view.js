@@ -43,7 +43,6 @@ const onTemplateChanges = (pacienteForm) => {
 $('body').click((event) => {
   const section = event.target.dataset.section;
   if (section) {
-
     onTemplateChanges($('#paciente-form'));
 
   }
