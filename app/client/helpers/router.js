@@ -1,4 +1,5 @@
 const { ipcRenderer } = require('electron');
+const IpcEventsEnum = require('../../server/infra/IpcEventsEnum');
 
 const $ = require('jquery');
 
@@ -15,8 +16,7 @@ const listenRouting = (defaultPageId) => {
     const section = event.target.dataset.section;
     if (section) {
       navegateTo(section);
-      console.log('oal');
-      ipcRenderer.send('reload-pacoentee')
+      ipcRenderer.send(IpcEventsEnum.TEMPLATE_LOADED)
     }
   });
 

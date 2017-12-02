@@ -62,6 +62,6 @@ listarPacientes();
 onDelete();
 onEdit();
 
-$('button#link-lista-pacientes').on('click', function(){
-listarPacientes();
+$('button#link-lista-pacientes').on('click', function () {
+  listarPacientes();
 })
