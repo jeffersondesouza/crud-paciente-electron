@@ -18,41 +18,27 @@ const addPaciente = (pacienteForm) => {
     .catch(error => console.log(error));
 }
 
-const onAddPaciente = () => {
-
-  let pacienteForm = $('#paciente-form');
-
+const onAddPaciente = (pacienteForm) => {
   pacienteForm.submit((event) => {
     event.preventDefault();
     addPaciente(pacienteForm);
   });
 }
 
-const onCancelAddPaciente = () => {
-  console.log('cancelado')
-}
-
-const onCancelForm = () => {
-  /* let pacienteForm = $('#paciente-form');
-
-  btn - cancel - form */
+const onCancelForm = (pacienteForm) => {
+  console.log('c')
+  $('#btn-cancel-form').on('click', () => {
+    resetForm(pacienteForm);
+  });
 }
 
 
-const onTemplateChanges = () => {
+const onTemplateChanges = (pacienteForm) => {
+  console.log('c1')
 
-  onCancelForm();
-  onAddPaciente();
+  onCancelForm(pacienteForm);
+  onAddPaciente(pacienteForm);
 }
-
-ipcRenderer.on(IpcEventsEnum.TEMPLATE_LOADED, () => {
-  console.log(IpcEventsEnum.TEMPLATE_LOADED)
-})
-
-
-ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (e, value) => {
-  console.log(e, value)
-})
 
 $('body').click((event) => {
   const section = event.target.dataset.section;
@@ -63,5 +49,18 @@ $('body').click((event) => {
   }
 });
 
-onAddPaciente();
-onCancelForm();
+onAddPaciente($('#paciente-form'));
+onCancelForm($('#paciente-form'))
+
+
+
+
+/* ipcRenderer.on(IpcEventsEnum.TEMPLATE_LOADED, () => {
+  console.log(IpcEventsEnum.TEMPLATE_LOADED)
+})
+
+
+ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (e, value) => {
+  console.log(e, value)
+})
+ */

@@ -62,6 +62,9 @@ listarPacientes();
 onDelete();
 onEdit();
 
-$('button#link-lista-pacientes').on('click', function () {
-  listarPacientes();
-})
+$('body').click((event) => {
+  const section = event.target.dataset.section;
+  if (section) {
+    listarPacientes();
+  }
+});
