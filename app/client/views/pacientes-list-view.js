@@ -14,22 +14,27 @@ const listarPacientes = () => {
 }
 
 
-const checarExistenciaPaciente = (pacienteId) => {
+const checaExistenciaPaciente = (pacienteId) => {
   return PacienteController.buscarPorId(pacienteId);
+}
+
+const removePaciente = (pacienteId) => {
+  PacienteController.remover(pacienteId)
+    .then(res => {
+      listarPacientes();
+    });
+
 }
 
 const onDeleteListening = () => {
   $('#lista-pacientes').on('click', 'button.action-buttons__remove', function (e) {
     e.preventDefault();
 
-    checarExistenciaPaciente(e.target.id)
+    checaExistenciaPaciente(e.target.id)
       .then(paciente => {
         const isDeleteConfirmed = confirm(`Você tem certeza que deseja deletar o pacieente: ${paciente.nome}`)
         if (isDeleteConfirmed) {
-          PacienteController.remover(e.target.id)
-            .then(res => {
-              listarPacientes();
-            });
+          removePaciente(e.target.id);
         }
       })
       .catch(error => console.log('Houve um Erro, ou o Paciente não existe'))
@@ -39,10 +44,12 @@ const onDeleteListening = () => {
 const onEditListening = () => {
   $('#lista-pacientes').on('click', 'button.action-buttons__edit', function (e) {
     e.preventDefault();
-    PacienteController.buscarPorId(e.target.id)
+
+    checaExistenciaPaciente(e.target.id)
       .then(paciente => {
         ipcRenderer.send(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, paciente)
       })
+      .catch(error => console.log('Houve um Erro, ou o Paciente não existe'));
   });
 }
 
