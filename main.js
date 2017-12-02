@@ -3,6 +3,8 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const IpcEventsEnum = require('./app/server/infra/IpcEventsEnum');
 
 let mainWindow;
+let deletarPacienteWindow = null;
+
 
 const createWindow = () => {
 
@@ -56,3 +58,25 @@ ipcMain.on(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, (event, paciente) => {
 
 
 
+ipcMain.on(IpcEventsEnum.REMOCAO_PACIENTE, (event, paciente) => {
+
+  if (!deletarPacienteWindow) {
+
+    deletarPacienteWindow = new BrowserWindow({
+      width: 300,
+      height: 220,
+      alwaysOnTop: true,
+      parent: mainWindow
+    });
+
+    deletarPacienteWindow.on('close', () => {
+      deletarPacienteWindow = null;
+    });
+
+
+    deletarPacienteWindow.send('paciente-remove', paciente);
+
+  }
+  deletarPacienteWindow.loadURL(`file://${__dirname}/app/client/templates/confirm-deletar-paciente.html`);
+
+});

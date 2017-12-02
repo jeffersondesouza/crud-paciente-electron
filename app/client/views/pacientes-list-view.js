@@ -1,6 +1,8 @@
 const { ipcRenderer } = require('electron');
+
 const IpcEventsEnum = require('../../../app/server/infra/IpcEventsEnum');
 const { PacienteController } = require('../../server/paciente');
+/** end imports */
 
 const listarPacientes = () => {
   PacienteController.listarTodos()
@@ -15,10 +17,19 @@ const onDelete = () => {
   $('#lista-pacientes').on('click', 'button.action-buttons__remove', function (e) {
     e.preventDefault();
     console.log(e.target.id);
-    PacienteController.remover(e.target.id)
-      .then(res => {
-        listarPacientes();
+
+    PacienteController.buscarPorId(e.target.id)
+      .then(paciente => {
+        ipcRenderer.send(IpcEventsEnum.REMOCAO_PACIENTE, paciente);
       })
+      .catch(error => console.log('Houve um Erro, ou o Paciente não existe'))
+
+
+    /*    PacienteController.remover(e.target.id)
+         .then(res => {
+           listarPacientes();
+         })
+         .catch(error => console.log(error)); */
   });
 }
 
@@ -57,15 +68,20 @@ const template = (model) => {
     : '<li></li>';
 }
 
+$(document).ready(function () {
+  $('body').click((event) => {
+    const section = event.target.dataset.section;
+    if (section === 'link-lista-pacientes') {
+      listarPacientes();
+    }
+  });
 
-listarPacientes();
-onEdit();
-onDelete();
+  listarPacientes();
+  onEdit();
+});
 
-$('body').click((event) => {
-  const section = event.target.dataset.section;
-  if (section === 'link-lista-pacientes') {
-    listarPacientes();
-  }
 
+
+ipcRenderer.on('paciente-remove', (event, paciente) => {
+  console.log('paciente: ', paciente)
 });
