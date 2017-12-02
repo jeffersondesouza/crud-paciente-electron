@@ -6,6 +6,7 @@ const { PacienteController } = require('../../server/paciente');
 const listarPacientes = () => {
   PacienteController.listarTodos()
     .then(res => {
+      console.log( $('#lista-pacientes'))
       $('#lista-pacientes').html(res.map(template));
     });
 }
@@ -55,8 +56,6 @@ const template = (model) => {
     : '<li></li>';
 }
 
-$(document).ready(() => {
-  listarPacientes();
-  onDelete();
-  onEdit();
-});
+listarPacientes();
+onDelete();
+onEdit();
