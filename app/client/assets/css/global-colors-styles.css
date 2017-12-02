@@ -2,7 +2,6 @@
     background-color: #7CA0C7;
 }
 
-
 .center {
     text-align: center;
 }
@@ -13,6 +12,19 @@
     margin: 1.78rem 0 1.424rem 0;
 }
 
+.breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb__item {
+    color: #a1a1a1;
+}
+
+.active {
+    color: #29b6f6
+}
+
 
 /* Colors */
 
@@ -20,9 +32,18 @@
     background-color: #4caf50;
 }
 
-.white{
+.white {
     color: #ffff
 }
+
+.gray-dark {
+    color: #424242;
+}
+
 .gray-a1 {
-    color: #1A1A1A;
+    color: #A1A1A1;
+}
+
+.light-blue {
+    color: #29b6f6
 }
