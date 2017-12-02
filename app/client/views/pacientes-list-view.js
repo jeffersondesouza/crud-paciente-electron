@@ -62,7 +62,13 @@ const onPesquisaPaciente = () => {
     const nomeFiltro = e.target.value.toLowerCase();
     const listaPacientesFiltrada = listaDePacientes
       .filter(paciente => paciente.nome.toLowerCase().includes(nomeFiltro));
-    $('#lista-pacientes').html(listaPacientesFiltrada.map(template));
+
+    if (listaPacientesFiltrada.length) {
+      $('#lista-pacientes').html(listaPacientesFiltrada.map(template));
+    } else {
+      $('#lista-pacientes').html(`Não econtramos nenhum Paciente com o nome <strong>${nomeFiltro}</strong>`);
+    }
+
   });
 }
 
