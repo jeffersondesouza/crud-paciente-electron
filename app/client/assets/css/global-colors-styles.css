@@ -2,10 +2,27 @@
     background-color: #7CA0C7;
 }
 
-.white {
-    color: #fff;
-}
 
 .center {
-  text-align: center; 
+    text-align: center;
+}
+
+.title {
+    font-size: 1.56rem;
+    line-height: 80%;
+    margin: 1.78rem 0 1.424rem 0;
+}
+
+
+/* Colors */
+
+.bg--green {
+    background-color: #4caf50;
+}
+
+.white{
+    color: #ffff
+}
+.gray-a1 {
+    color: #1A1A1A;
 }

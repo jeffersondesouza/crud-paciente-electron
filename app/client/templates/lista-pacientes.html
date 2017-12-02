@@ -1,11 +1,18 @@
 <template id="link-lista-pacientes">
-  <h3>Lista de Pacientes</h3>
-  <div class="form-group">
-    <input id="pesquisa-pacientes" type="text" placeholder="Procure um paciente por Nome">
-  </div>
-  <div>
-    <ul id="lista-pacientes"></ul>
-  </div>
+  <link rel="stylesheet" href="app/client/assets/css/lista-paceintes.css">
+  <section class="lista-pacientes">
+    <div class="lista-pacientes__header">
+      <h2 class="title gray-a1" class="lista-pacientes__header__title">Lista de Pacientes</h2>
+      <button type="button" data-section="link-form-pacientes" class="lista-pacientes__header__add-button bg--green white">Cadastrar Paciente</button>
+    </div>
+
+    <div class="pesquisa center">
+      <input id="pesquisa-pacientes" class="pesquisa__input" type="text" placeholder="Procure um paciente por Nome">
+    </div>
+    <div>
+      <ul id="lista-pacientes"></ul>
+    </div>
+  </section>
   <script>
     require('./app/client/views/pacientes-list-view');
   </script>

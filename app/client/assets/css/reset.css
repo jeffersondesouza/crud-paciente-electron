@@ -4,10 +4,7 @@
 */
 
 html {
-  font-family: sans-serif;
-  -webkit-user-select: none; /* disable selection */
-  -webkit-user-drag: none; /* disable dragging */
-  cursor: default; /* use default cursor */
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
 body {
@@ -28,7 +25,7 @@ code {
 /* Buttons and links */
 
 button{
-  cursor: default;
+  cursor: pointer;
 }
 
 /* Internal links */
