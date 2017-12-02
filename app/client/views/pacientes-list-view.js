@@ -8,8 +8,8 @@ const listarPacientes = () => {
   PacienteController.listarTodos()
     .then(res => {
       $('#lista-pacientes').html(res.map(template));
-      onEdit();
-      onDelete();
+      onEditListening();
+      onDeleteListening();
     });
 }
 
@@ -18,7 +18,7 @@ const checarExistenciaPaciente = (pacienteId) => {
   return PacienteController.buscarPorId(pacienteId);
 }
 
-const onDelete = () => {
+const onDeleteListening = () => {
   $('#lista-pacientes').on('click', 'button.action-buttons__remove', function (e) {
     e.preventDefault();
 
@@ -36,7 +36,7 @@ const onDelete = () => {
   });
 }
 
-const onEdit = () => {
+const onEditListening = () => {
   $('#lista-pacientes').on('click', 'button.action-buttons__edit', function (e) {
     e.preventDefault();
     PacienteController.buscarPorId(e.target.id)
@@ -80,5 +80,5 @@ $(document).ready(function () {
   });
 
   listarPacientes();
-  onEdit();
+  onEditListening();
 });
