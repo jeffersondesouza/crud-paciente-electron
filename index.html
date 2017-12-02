@@ -10,15 +10,15 @@
   <link rel="stylesheet" href="app/client/assets/css/native.css">
   <link rel="stylesheet" href="app/client/assets/css/nav.css">
 
-  <link id="lista-pacientes" rel="import" href="app/client/templates/lista-pacientes.html">
-  <link id="form-pacientes" rel="import" href="app/client/templates/form-pacientes.html">
+  <link id="link-lista-pacientes" rel="import" href="app/client/templates/lista-pacientes.html">
+  <link id="link-form-pacientes" rel="import" href="app/client/templates/form-pacientes.html">
 
 </head>
 
 <body>
   <div class="nav-item">
-    <button type="button" data-section="lista-pacientes" class="nav-button">Lista de Pacientes</button>
-    <button type="button" data-section="form-pacientes" class="nav-button"> Add Paciente</button>
+    <button id="link-lista-pacientes" type="button" data-section="link-lista-pacientes" class="nav-button">Lista de Pacientes</button>
+    <button type="button" data-section="link-form-pacientes" class="nav-button"> Add Paciente</button>
   </div>
 
   <div id="main-content"></div>
@@ -26,9 +26,9 @@
   <script>
     const $ = require('jquery');
     const { listenRouting } = require('./app/client/helpers/router');
-    listenRouting('lista-pacientes');
+    listenRouting('link-lista-pacientes');
 
-
+ 
   </script>
 </body>
 

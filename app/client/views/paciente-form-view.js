@@ -30,3 +30,5 @@ onAddPaciente();
 ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (e, value) => {
   console.log(e, value)
 })
+
+MAX = 100;

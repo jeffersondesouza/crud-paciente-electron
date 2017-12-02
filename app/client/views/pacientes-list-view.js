@@ -3,10 +3,11 @@ const IpcEventsEnum = require('../../../app/server/infra/IpcEventsEnum');
 const { PacienteController } = require('../../server/paciente');
 
 
+
 const listarPacientes = () => {
   PacienteController.listarTodos()
     .then(res => {
-      console.log( $('#lista-pacientes'))
+      console.log($('#lista-pacientes'))
       $('#lista-pacientes').html(res.map(template));
     });
 }
@@ -56,6 +57,11 @@ const template = (model) => {
     : '<li></li>';
 }
 
+
 listarPacientes();
 onDelete();
 onEdit();
+
+$('button#link-lista-pacientes').on('click', function(){
+listarPacientes();
+})

@@ -1,3 +1,5 @@
+const { ipcRenderer } = require('electron');
+
 const $ = require('jquery');
 
 const navegateTo = (linkId) => {
@@ -13,8 +15,11 @@ const listenRouting = (defaultPageId) => {
     const section = event.target.dataset.section;
     if (section) {
       navegateTo(section);
+      console.log('oal');
+      ipcRenderer.send('reload-pacoentee')
     }
   });
+
 }
 
 module.exports = { listenRouting };

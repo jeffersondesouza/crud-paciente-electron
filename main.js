@@ -17,7 +17,7 @@ const createWindow = () => {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 }
 
-function makeSingleInstance () {
+function makeSingleInstance() {
   if (process.mas) return false
 
   return app.makeSingleInstance(function () {
@@ -48,3 +48,11 @@ app.on('activate', function () {
 });
 
 
+ipcMain.on('load', function () {
+  console.log('load ')
+})
+
+
+document.addEventListener('WebComponentsReady', function(e) {
+  alert('WebComponentsReady!!!');
+});
