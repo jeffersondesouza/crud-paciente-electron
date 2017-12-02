@@ -59,7 +59,7 @@ ipcMain.on(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, (event, paciente) => {
 
 
 ipcMain.on(IpcEventsEnum.REMOCAO_PACIENTE, (event, paciente) => {
-
+  console.log(paciente)
   if (!deletarPacienteWindow) {
 
     deletarPacienteWindow = new BrowserWindow({
@@ -79,4 +79,5 @@ ipcMain.on(IpcEventsEnum.REMOCAO_PACIENTE, (event, paciente) => {
   }
   deletarPacienteWindow.loadURL(`file://${__dirname}/app/client/templates/confirm-deletar-paciente.html`);
 
+  event.sender.send(IpcEventsEnum.PACIENTE_PARA_EDICAO, paciente);
 });

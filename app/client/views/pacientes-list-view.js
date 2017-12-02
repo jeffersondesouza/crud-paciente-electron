@@ -13,23 +13,26 @@ const listarPacientes = () => {
     });
 }
 
+
+const checarExistenciaPaciente = (pacienteId) => {
+  return PacienteController.buscarPorId(pacienteId);
+}
+
 const onDelete = () => {
   $('#lista-pacientes').on('click', 'button.action-buttons__remove', function (e) {
     e.preventDefault();
-    console.log(e.target.id);
 
-    PacienteController.buscarPorId(e.target.id)
+    checarExistenciaPaciente(e.target.id)
       .then(paciente => {
-        ipcRenderer.send(IpcEventsEnum.REMOCAO_PACIENTE, paciente);
+        const isDeleteConfirmed = confirm(`Você tem certeza que deseja deletar o pacieente: ${paciente.nome}`)
+        if (isDeleteConfirmed) {
+          PacienteController.remover(e.target.id)
+            .then(res => {
+              listarPacientes();
+            });
+        }
       })
       .catch(error => console.log('Houve um Erro, ou o Paciente não existe'))
-
-
-    /*    PacienteController.remover(e.target.id)
-         .then(res => {
-           listarPacientes();
-         })
-         .catch(error => console.log(error)); */
   });
 }
 
@@ -78,10 +81,4 @@ $(document).ready(function () {
 
   listarPacientes();
   onEdit();
-});
-
-
-
-ipcRenderer.on('paciente-remove', (event, paciente) => {
-  console.log('paciente: ', paciente)
 });
