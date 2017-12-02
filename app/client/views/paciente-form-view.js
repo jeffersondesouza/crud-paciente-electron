@@ -3,6 +3,9 @@ const IpcEventsEnum = require('../../server/infra/IpcEventsEnum');
 
 const { PacienteController } = require('../../server/paciente');
 
+const onTemplateChanges = () => {
+
+}
 
 const onAddPaciente = () => {
   console.log('on add')
@@ -27,14 +30,12 @@ const onCancelAddPaciente = () => {
   console.log('cancelado')
 }
 
+const onCancelForm = () => {
+  /* let pacienteForm = $('#paciente-form');
 
+  btn - cancel - form */
+}
 
-$('body').click((event) => {
-  const section = event.target.dataset.section;
-  if (section) {
-    onAddPaciente();
-  }
-});
 
 ipcRenderer.on(IpcEventsEnum.TEMPLATE_LOADED, () => {
   console.log(IpcEventsEnum.TEMPLATE_LOADED)
@@ -45,4 +46,16 @@ ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (e, value) => {
   console.log(e, value)
 })
 
+$('body').click((event) => {
+  const section = event.target.dataset.section;
+  if (section) {
+
+    onTemplateChanges($('#paciente-form'));    
+    
+    onCancelForm();
+    onAddPaciente();
+  }
+});
+
 onAddPaciente();
+onCancelForm();
