@@ -64,11 +64,6 @@ onDelete();
 
 $('body').click((event) => {
   const section = event.target.dataset.section;
-  if (section) {
-    console.log('asas')
-    onEdit();
-    onDelete();
-  }
   if (section === 'link-lista-pacientes') {
     listarPacientes();
   }

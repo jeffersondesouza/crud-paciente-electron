@@ -1,3 +1,4 @@
+
 const { app, BrowserWindow, ipcMain } = require('electron');
 const IpcEventsEnum = require('./app/server/infra/IpcEventsEnum');
 
@@ -49,6 +50,9 @@ app.on('activate', function () {
 });
 
 ipcMain.on(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, (event, paciente) => {
-  console.log('main: ', paciente);
+  console.log(paciente)
   event.sender.send(IpcEventsEnum.PACIENTE_PARA_EDICAO, paciente);
 });
+
+
+

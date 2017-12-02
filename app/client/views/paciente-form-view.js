@@ -1,3 +1,4 @@
+const $ = require('jquery');
 const { ipcRenderer, remote } = require('electron');
 const IpcEventsEnum = require('../../server/infra/IpcEventsEnum');
 
@@ -33,8 +34,6 @@ const onCancelForm = (pacienteForm) => {
 
 
 const onTemplateChanges = (pacienteForm) => {
-  console.log('c1')
-
   onCancelForm(pacienteForm);
   onAddPaciente(pacienteForm);
 }
@@ -50,5 +49,17 @@ onAddPaciente($('#paciente-form'));
 onCancelForm($('#paciente-form'))
 
 ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (event, paciente) => {
-  console.log('form: ', paciente)
+
+  console.log('form: ', paciente);
+  
+  
+  $('input[name=nome]').val(paciente.nome);
+  $('input[name=email]').val(paciente.email);
+  $('input[name=telefone]').val(paciente.telefone);
+  $('input[name=dataDeNascimento]').val(paciente.dataDeNascimento);
+  $('input[name=endereco]').val(paciente.endereco);
+  $('input[name=_id]').val(paciente._id);
+  $('input[name=_rev]').val(paciente._rev);
+
+
 });
