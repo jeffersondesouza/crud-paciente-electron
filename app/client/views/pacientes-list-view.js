@@ -4,12 +4,15 @@ const IpcEventsEnum = require('../../../app/server/infra/IpcEventsEnum');
 const { PacienteController } = require('../../server/paciente');
 /** end imports */
 
+let listaDePacientes = [];
+
 const listarPacientes = () => {
   PacienteController.listarTodos()
     .then(res => {
-      $('#lista-pacientes').html(res.map(template));
+      listaDePacientes = res;
       onEditListening();
       onDeleteListening();
+      onPesquisaPaciente();
     });
 }
 
@@ -50,6 +53,16 @@ const onEditListening = () => {
         ipcRenderer.send(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, paciente)
       })
       .catch(error => console.log('Houve um Erro, ou o Paciente não existe'));
+  });
+}
+
+const onPesquisaPaciente = () => {
+  $('#lista-pacientes').html(listaDePacientes.map(template));
+  $('#pesquisa-pacientes').on('input', (e) => {
+    const nomeFiltro = e.target.value.toLowerCase();
+    const listaPacientesFiltrada = listaDePacientes
+      .filter(paciente => paciente.nome.toLowerCase().includes(nomeFiltro));
+    $('#lista-pacientes').html(listaPacientesFiltrada.map(template));
   });
 }
 
