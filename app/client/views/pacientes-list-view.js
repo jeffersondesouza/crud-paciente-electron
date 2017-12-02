@@ -73,7 +73,6 @@ const onPesquisaPaciente = () => {
 }
 
 const template = (model) => {
-  // console.log(model)
   return model
     ? `
       <li id="list" class="paciente-item">
