@@ -49,6 +49,6 @@ $('body').click((event) => {
 onAddPaciente($('#paciente-form'));
 onCancelForm($('#paciente-form'))
 
-ipcRenderer.on('main', (event, value) => {
-  console.log('form: ', value)
+ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (event, paciente) => {
+  console.log('form: ', paciente)
 });

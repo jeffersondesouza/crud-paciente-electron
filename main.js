@@ -48,8 +48,7 @@ app.on('activate', function () {
   }
 });
 
-ipcMain.on(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, (event, value) => {
-  console.log('main: ', value);
-  mainWindow.webContents.send('main', 5);
-  event.sender.send('main', 2);
+ipcMain.on(IpcEventsEnum.PACIENTE_PARA_EDICAO_ID, (event, paciente) => {
+  console.log('main: ', paciente);
+  event.sender.send(IpcEventsEnum.PACIENTE_PARA_EDICAO, paciente);
 });
