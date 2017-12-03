@@ -88,8 +88,12 @@ const template = (model) => {
           </div>
         </div>
         <div class="paciente-item__action">
-        <button id="${model.id}"  data-section="link-form-pacientes" class="btn action-buttons action-buttons__edit blue-bg white" title="Clique para editar paciente">Editar</button>
-        <button id="${model.id}" class="btn action-buttons action-buttons__remove red-bg white" title="Clique para Remover paciente">Remover</button>
+        <button id="${model.id}"  data-section="link-form-pacientes" class="btn action-buttons action-buttons__edit blue-bg white" title="Clique para editar paciente">
+          <i class="fa fa-pencil" aria-hidden="true"></i>Editar
+        </button>
+        <button id="${model.id}" class="btn action-buttons action-buttons__remove red-bg white" title="Clique para Remover paciente">
+          <i class="fa fa-times" aria-hidden="true"></i>Remover
+        </button>
      
         </div>
       </li>
