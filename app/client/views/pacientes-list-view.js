@@ -46,7 +46,7 @@ const onDeleteListening = () => {
           removePaciente(e.target.id);
         }
       })
-      .catch(error => console.log('Houve um Erro, ou o Paciente não existe'))
+      .catch(error => console.log('Houve um Erro, o Paciente não existe'))
   });
 }
 
