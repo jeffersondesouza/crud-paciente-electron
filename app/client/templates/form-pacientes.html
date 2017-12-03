@@ -1,33 +1,61 @@
 <template id="link-form-pacientes">
-  <section class="wrapper">
+  <link rel="stylesheet" href="app/client/assets/css/form-paceintes.css">
 
-    <form id="paciente-form">
+  <section class="wrapper">
+    <h2 class="lista-pacientes__header__title title gray-dark">Cadastrar Paciente</h2>
+    <form id="paciente-form" class="paciente-form">
       <input type="hidden" id="id" name="_id" class="form-control" />
       <input type="hidden" id="rev" name="_rev" class="form-control" />
 
-      <div class="form-group">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" class="form-control" required autofocus/>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" class="form-control" required/>
-      </div>
-      <div class="form-group">
-        <label for="telefone">Telefone</label>
-        <input type="text" id="telefone" name="telefone" class="form-control" required/>
-      </div>
-      <div class="form-group">
-        <label for="dataDeNascimento">Data de Nascimento</label>
-        <input type="date" id="dataDeNascimento" name="dataDeNascimento" class="form-control" required/>
-      </div>
-      <div class="form-group">
-        <label for="endereco">Endereço</label>
-        <input type="text" id="endereco" name="endereco" class="form-control" required/>
-      </div>
-      <button type="submit">Adicionar Paciente</button>
-      <br>
-      <button id="btn-cancel-form" type="button" data-section="link-lista-pacientes">Cancelar</button>
+      <section class="form-feild">
+        <h2 class="form-feild__title">Informações Pessoais</h2>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" class="form-control" required autofocus/>
+        </div>
+        <div class="form-group">
+          <label for="dataDeNascimento">Data de Nascimento</label>
+          <input type="date" id="dataDeNascimento" name="dataDeNascimento" class="form-control" required/>
+        </div>
+      </section>
+      <section class="form-feild">
+        <h2 class="form-feild__title">Contatos</h2>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" class="form-control" required/>
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="text" id="telefone" name="telefone" class="form-control" required/>
+        </div>
+      </section>
+      <section class="form-feild">
+        <h2 class="form-feild__title">Endereço</h2>
+        <div class="form-group">
+          <label for="endereco">Rua</label>
+          <input type="text" id="endereco" name="endereco" class="form-control" required/>
+        </div>
+        <div class="form-group">
+          <label for="endereco">Cep</label>
+          <input type="text" id="cep" name="cep" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="endereco">Bairro</label>
+          <input type="text" id="bairro" name="bairro" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="endereco">Cidade</label>
+          <input type="text" id="cidade" name="cidade" class="form-control" />
+        </div>
+      </section>
+
+      <section class="form-feild center">
+        <button id="btn-cancel-form" type="button" data-section="link-lista-pacientes" class="btn btn-lg">Cancelar</button>
+        <span class="separator">Ou</span>
+        <button type="submit" class="btn btn-lg btn-succes">Adicionar Paciente</button>
+      </section>
+
+
     </form>
   </section>
   <script>
