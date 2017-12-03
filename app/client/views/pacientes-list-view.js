@@ -21,10 +21,16 @@ const checaExistenciaPaciente = (pacienteId) => {
   return PacienteController.buscarPorId(pacienteId);
 }
 
+
+const removePacienteLocalmente = (pacienteId) => {
+  listaDePacientes = listaDePacientes.filter(paciente => paciente._id !== pacienteId)
+  $('#lista-pacientes').html(listaDePacientes.map(template));
+}
+
 const removePaciente = (pacienteId) => {
   PacienteController.remover(pacienteId)
     .then(res => {
-      listarPacientes();
+      removePacienteLocalmente(pacienteId);
     });
 
 }

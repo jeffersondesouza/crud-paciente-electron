@@ -54,15 +54,6 @@ const removeErrorMessages = (requiredFields) => {
   });
 };
 
-const onInit = () => {
-  $('body').click((event) => {
-    const section = event.target.dataset.section;
-    if (section) {
-      onTemplateChanges($('#paciente-form'));
-    }
-  });
-}
-
 const onAddPaciente = (pacienteForm) => {
   pacienteForm.submit((event) => {
     event.preventDefault();
@@ -83,10 +74,7 @@ const onAddPaciente = (pacienteForm) => {
 
       setErrorMessages(requiredFields);
     }
-
-
   });
-
 }
 
 const onCancelForm = (pacienteForm) => {
@@ -101,9 +89,13 @@ const onTemplateChanges = (pacienteForm) => {
 }
 
 
+$('body').click((event) => {
+  const section = event.target.dataset.section;
+  if (section) {
+    onTemplateChanges($('#paciente-form'));
+  }
+});
 
-
-onInit();
 onAddPaciente($('#paciente-form'));
 onCancelForm($('#paciente-form'))
 
