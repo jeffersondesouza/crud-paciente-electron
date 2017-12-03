@@ -1,8 +1,3 @@
-.lista-pacientes {
-    background-color: #fff;
-    padding: 0.5rem 1rem;
-}
-
 .lista-pacientes__header {
     display: flex;
     align-items: center;
@@ -19,7 +14,6 @@
     font-weight: 600;
     border-radius: 0.7rem;
 }
-
 
 .pesquisa {
     margin: auto;
@@ -40,4 +34,46 @@
 .pesquisa__input:focus {
     outline: none;
     border-bottom: 1.5px solid #a1a1a1;
+}
+
+.paciente-item {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    border-top: 0.03rem solid #a1a1a1;
+    padding: 0.7rem;
+}
+
+.paciente-item__paciente-info {
+    flex-grow: 1;
+}
+
+.paciente-item__action {
+    margin: auto;
+}
+
+.paciente-item__action-buttons {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+.btn {
+    background: none;
+    border: none;
+    margin: 1rem;
+    height: 1.2rem;
+    border-radius: 0.3rem;
+    font-weight: 900;
+}
+
+.red-bg {
+    background-color: #e53935;
+}
+
+.blue-bg {
+    background-color: #29b6f6;
+}
+
+.white {
+    color: #ffffff;
 }

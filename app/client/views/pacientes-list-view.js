@@ -76,20 +76,21 @@ const template = (model) => {
   return model
     ? `
       <li id="list" class="paciente-item">
-        <div class="paciente-item__nome">
-          ${model.nome}
-        </div>
-        <div class="paciente-item__email">
-          ${model.email}
-        </div>
-        <div class="paciente-item__telefone">
-          ${model.telefone}
-        </div>
-        <div class="action-buttons">
-          <div class="action-buttons">
-            <button id="${model.id}"  data-section="link-form-pacientes" class="action-buttons__edit">Edit</button>
-            <button id="${model.id}" class="action-buttons__remove">Remove</button>
+        <div class="paciente-item__paciente-info">
+          <div class="paciente-item__paciente-info__nome">
+            ${model.nome}
           </div>
+          <div class="paciente-item__paciente-info__email">
+            ${model.email}
+          </div>
+          <div class="paciente-item__paciente-info__telefone">
+            ${model.telefone}
+          </div>
+        </div>
+        <div class="paciente-item__action">
+        <button id="${model.id}"  data-section="link-form-pacientes" class="btn action-buttons action-buttons__edit blue-bg white" title="Clique para editar paciente">Editar</button>
+        <button id="${model.id}" class="btn action-buttons action-buttons__remove red-bg white" title="Clique para Remover paciente">Remover</button>
+     
         </div>
       </li>
   `

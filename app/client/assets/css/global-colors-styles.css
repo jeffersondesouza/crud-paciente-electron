@@ -30,6 +30,11 @@
     visibility: hidden;
 }
 
+.wrapper {
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+}
+
 
 /* Colors */
 
@@ -51,4 +56,12 @@
 
 .light-blue {
     color: #29b6f6
+}
+
+.red {
+    color: #e53935;
+}
+
+.red-bg {
+    background-color: #e53935;
 }
