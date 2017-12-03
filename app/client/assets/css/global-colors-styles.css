@@ -30,11 +30,6 @@
     visibility: hidden;
 }
 
-.wrapper {
-    background-color: #fff;
-    padding: 0.5rem 1rem;
-}
-
 
 /* buttons */
 
@@ -97,6 +92,10 @@
 
 .gray-dark {
     color: #424242;
+}
+
+.gray-light {
+    color: #757575;
 }
 
 .gray-a1 {

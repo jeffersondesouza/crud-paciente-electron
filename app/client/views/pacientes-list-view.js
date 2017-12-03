@@ -77,13 +77,13 @@ const template = (model) => {
     ? `
       <li id="list" class="paciente-item">
         <div class="paciente-item__paciente-info">
-          <div class="paciente-item__paciente-info__nome">
+          <div class="paciente-item__paciente-info__nome gray-dark">
             ${model.nome}
           </div>
-          <div class="paciente-item__paciente-info__email">
+          <div class="paciente-item__paciente-info__email light-blue">
             ${model.email}
           </div>
-          <div class="paciente-item__paciente-info__telefone">
+          <div class="paciente-item__paciente-info__telefone gray-light">
             ${model.telefone}
           </div>
         </div>

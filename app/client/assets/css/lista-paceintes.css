@@ -1,3 +1,7 @@
+.lista-pacientes-wrapper {
+    overflow-y: scroll;
+}
+
 .lista-pacientes__header {
     display: flex;
     align-items: center;
@@ -13,8 +17,6 @@
     border-radius: 0.7rem;
     outline: none;
 }
-
-
 
 .pesquisa {
     margin: 0;
@@ -59,15 +61,17 @@
     height: 1.3rem;
 }
 
-
-.red-bg {
-    background-color: #e53935;
+.paciente-item__paciente-info__nome {
+    font-size: 1.3rem;
+    color: #4a4a4a;
+    margin-bottom: 0.1rem;
 }
 
-.blue-bg {
-    background-color: #2197ca;
+.paciente-item__paciente-info__email {
+    margin-bottom: 0.2rem;
+    font-size: 0.8rem;
 }
 
-.white {
-    color: #ffffff;
+.paciente-item__paciente-info__telefone {
+    font-size: 1rem;
 }

@@ -10,9 +10,11 @@
     background: none;
     border: none;
 }
-.breadcrumb__item:hover{
+
+.breadcrumb__item:hover {
     cursor: pointer;
 }
+
 
 .header {
     height: 5rem;
@@ -25,4 +27,11 @@
 .container {
     width: 70%;
     margin: auto;
+    height: 100vh;
+}
+
+.wrapper {
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    min-height: 80vh;
 }
