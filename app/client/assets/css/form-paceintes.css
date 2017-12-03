@@ -1,3 +1,14 @@
 .paciente-form {
     margin-top: 1.7rem;
 }
+
+.paciente-form__succes-msg {
+    background-color: #dff0d8;
+    margin: 0;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    color: #3c763d;
+    border-color: #dff0d8;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}

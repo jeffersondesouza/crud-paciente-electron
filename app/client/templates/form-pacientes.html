@@ -1,9 +1,10 @@
 <template id="link-form-pacientes">
   <link rel="stylesheet" href="app/client/assets/css/form-paceintes.css">
 
-  <section class="wrapper">
+  <main class="wrapper">
     <h2 class="lista-pacientes__header__title title gray-dark">Cadastrar Paciente</h2>
     <form id="paciente-form" class="paciente-form">
+      <p class="paciente-form__succes-msg hidden">Paciente Adicionado com sucesso</p>
       <input type="hidden" id="id" name="_id" class="form-control" />
       <input type="hidden" id="rev" name="_rev" class="form-control" />
 
@@ -57,9 +58,9 @@
 
 
     </form>
-  </section>
-  <script>
-    require('./app/client/views/paciente-form-view');
-  </script>
+    </mian>
+    <script>
+      require('./app/client/views/paciente-form-view');
+    </script>
 
 </template>

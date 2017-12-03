@@ -21,13 +21,18 @@
     color: #a1a1a1;
 }
 
-.active {
-    color: #29b6f6;
+.visible {
     visibility: visible;
 }
 
 .hidden {
     visibility: hidden;
+    display: inline;
+}
+
+.active {
+    color: #29b6f6;
+    visibility: visible;
 }
 
 .separator {
@@ -108,6 +113,10 @@
     padding: 0 0.3rem;
     border: none;
     border: 0.015rem solid #A1A1A1;
+}
+
+.form-group input:focus {
+    box-shadow: 0 0 0.25rem #A1A1A1;
 }
 
 .form-group input:focus {

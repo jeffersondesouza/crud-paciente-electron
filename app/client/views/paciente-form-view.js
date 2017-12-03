@@ -15,11 +15,29 @@ const addPaciente = (pacienteForm) => {
   PacienteController.salvar(pacienteForm.serializeArray())
     .then(res => {
       resetForm(pacienteForm);
+      $(document).scrollTop(0);
+      $('.paciente-form__succes-msg').removeClass('hidden').addClass('visible');
     })
     .catch(error => console.log(error));
 }
 
+const resetFormBasedOn = (paciente) => {
+  Object.keys(paciente).forEach(key => {
+    $(`input[name=${key}]`).val(paciente[key]);
+  })
+}
+
+const onInit = () => {
+  $('body').click((event) => {
+    const section = event.target.dataset.section;
+    if (section) {
+      onTemplateChanges($('#paciente-form'));
+    }
+  });
+}
+
 const onAddPaciente = (pacienteForm) => {
+  console.log(pacienteForm)
   pacienteForm.submit((event) => {
     event.preventDefault();
     addPaciente(pacienteForm);
@@ -32,34 +50,18 @@ const onCancelForm = (pacienteForm) => {
   });
 }
 
-
 const onTemplateChanges = (pacienteForm) => {
   onCancelForm(pacienteForm);
   onAddPaciente(pacienteForm);
 }
 
-$('body').click((event) => {
-  const section = event.target.dataset.section;
-  if (section) {
-    onTemplateChanges($('#paciente-form'));
-  }
-});
 
+
+
+onInit();
 onAddPaciente($('#paciente-form'));
 onCancelForm($('#paciente-form'))
 
 ipcRenderer.on(IpcEventsEnum.PACIENTE_PARA_EDICAO, (event, paciente) => {
-
-  console.log('form: ', paciente);
-  
-  
-  $('input[name=nome]').val(paciente.nome);
-  $('input[name=email]').val(paciente.email);
-  $('input[name=telefone]').val(paciente.telefone);
-  $('input[name=dataDeNascimento]').val(paciente.dataDeNascimento);
-  $('input[name=endereco]').val(paciente.endereco);
-  $('input[name=_id]').val(paciente._id);
-  $('input[name=_rev]').val(paciente._rev);
-
-
+  resetFormBasedOn(paciente);
 });
