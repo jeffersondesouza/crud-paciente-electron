@@ -11,6 +11,17 @@ npm run start
 npm run test
 ```
 
+## Build nas plataformas Linux, Windows, Mac
+
+```
+"build:linux": "electron-packager . diagnes-crud --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/img/icon.png --prune=true --out=release-builds"
+    
+"build:win": "electron-packager . diagnes-crud --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/img/icon.png --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName='Electron Tutorial App'"
+
+"build:mac":"electron-packager . diagnes-crud  --overwrite --platform=darwin --arch=x64 --icon=assets/img/icon.png --prune=true --out=release-builds"
+
+``` 
+
 ### Tecnologias
 
 #### Electron
