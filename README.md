@@ -57,7 +57,6 @@ Dar ao usuário a poção de corrigir e excluir um dado, ou mesmo cancelar um pr
 
 ![Relação com o mundo Real](/assets/img/extras/N3.png)
 
-
 ### Consistência e padrões
 
 Manutenção nos padroẽs visuais de ações, além de manutenção de cores de textos e campos.
@@ -80,6 +79,6 @@ Previnir tanto o envio ao servidor de dados inconsistêntes, quanto informar ao 
 ![Relação com o mundo Real](/assets/img/extras/N99.png)
 
 Não esperar que u usuáŕio divinhe as funcionalidades do sistema, apresentar textos ou ícones que o indusa a usar as funções.
-OBS: Os botões de Editar e Deletar podereiam ser Ícones clássicos como o Lápis e a Lixeira
-OBS 2: No caso do botão CADASTRAR CLIENTE, transmitir ess ainfoirmação via ícone nem sempre é fácil, nessa situação o texto é mais ilustrativo
+- OBS: Os botões de Editar e Deletar podereiam ser Ícones clássicos como o Lápis e a Lixeira
+- OBS 2: No caso do botão CADASTRAR CLIENTE, transmitir ess ainfoirmação via ícone nem sempre é fácil, nessa situação o texto é mais ilustrativo
 
