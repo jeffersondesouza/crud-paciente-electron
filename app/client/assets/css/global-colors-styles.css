@@ -47,14 +47,15 @@
     border: none;
     margin: 0;
     height: 1.35rem;
-    border-radius: 0.3rem;
+    border-radius: 50rem 50rem;
     font-weight: 900;
     outline: none;
 }
 
 .btn-lg {
     height: 2.5rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    min-width: 7rem;
 }
 
 .btn-succes {
