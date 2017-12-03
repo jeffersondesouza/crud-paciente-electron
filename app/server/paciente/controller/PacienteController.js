@@ -15,11 +15,7 @@ const getRowArrayData = (list) => {
 
 
 const salvar = (inputData) => {
-  console.log(inputData)
-  
   const pacienteToSave = getParsedData(inputData);
-  
-  console.log(pacienteToSave)
   if (!pacienteToSave._id) {
     pacienteToSave._id = new Date().toISOString();
   }

@@ -143,6 +143,36 @@
     display: flex;
 }
 
+.succes-alert {
+    background-color: #dff0d8;
+    margin: 0;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    color: #3c763d;
+    border-color: #dff0d8;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.danger-alert {
+    background-color: #f2dede;
+    border-color: #f2dede;
+    border-radius: 4px;
+    color: #a94442;
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.danger-input {
+    border-color: #a94442 !important;
+}
+
+.input-error {
+    color: #a94442 !important;
+}
+
 
 /* Colors */
 
